@@ -11,7 +11,7 @@
     <classPathEntry location="${db.driverLocation}"/>
 
     <context id="default" targetRuntime="MyBatis3">
-
+git
         <!-- optional，旨在创建class时，对注释进行控制 -->
         <commentGenerator>
             <property name="suppressDate" value="true"/>
