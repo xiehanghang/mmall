@@ -37,7 +37,6 @@
         select
         <include refid="Base_Column_List"/>
         from mmall_order_item
-        where user_id = #{userId}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from mmall_order_item
