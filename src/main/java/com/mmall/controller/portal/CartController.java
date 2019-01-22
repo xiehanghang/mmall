@@ -7,6 +7,7 @@ import com.mmall.dao.CartMapper;
 import com.mmall.pojo.User;
 import com.mmall.service.ICartService;
 import com.mmall.vo.CartVo;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,8 @@ import javax.servlet.http.HttpSession;
  */
 @RequestMapping("/cart/")
 @Controller
+@Slf4j
 public class CartController {
-
-    private Logger logger = LoggerFactory.getLogger(CartController.class);
 
     @Autowired
     private ICartService iCartService;
