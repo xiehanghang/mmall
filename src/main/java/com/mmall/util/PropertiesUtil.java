@@ -2,18 +2,14 @@ package com.mmall.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
-/**
- * Created by Envc
- */
 @Slf4j
 public class PropertiesUtil {
+
 
     private static Properties props;
 
@@ -43,4 +39,7 @@ public class PropertiesUtil {
         }
         return value.trim();
     }
+
+
+
 }
