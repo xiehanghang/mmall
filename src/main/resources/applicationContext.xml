@@ -10,9 +10,10 @@
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--开启包扫描-->
-    <context:component-scan base-package="com.mmall" annotation-config="true"/>
+    <context:component-scan base-package="com.mmall" annotation-config="true">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
 
-    <!--AOP 的配置 <context:annotation-config/>-->
     <aop:aspectj-autoproxy/>
 
     <!--将 spring 数据库的配置进行分离-->
