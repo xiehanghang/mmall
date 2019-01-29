@@ -112,7 +112,7 @@ public class ProductController {
     }
 
 
-    //http://www.happymmall.com/product/keyword/手机/1/10/price_asc
+    //http:// www.happymmall.com/product/keyword/手机/1/10/price_asc
     @RequestMapping(value = "/keyword/{keyword}/{pageNum}/{pageSize}/{orderBy}", method = RequestMethod.GET)
     @ResponseBody
     public ServerResponse<PageInfo> listRESTful(@PathVariable(value = "keyword") String keyword,
