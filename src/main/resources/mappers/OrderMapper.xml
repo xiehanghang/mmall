@@ -56,6 +56,16 @@
         from mmall_order
         order by create_time desc
     </select>
+    <select id="selectOrderStatusByCreateTime" resultMap="BaseResultMap" parameterType="map">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from mmall_order
+        where status = #{status}
+        <![CDATA[
+    and create_time <= #{date}
+    ]]>
+        order by create_time desc
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from mmall_order
     where id = #{id,jdbcType=INTEGER}
@@ -224,5 +234,10 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
+  </update>
+    <update id="closeOrderByOrderId" parameterType="int" >
+    UPDATE mmall_order
+    SET status = 0
+    where id = #{id}
   </update>
 </mapper>
