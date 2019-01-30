@@ -434,7 +434,7 @@ public class OrderServiceImpl implements IOrderService {
     private ServerResponse getCartOrderItem(Integer userId, List<Cart> cartList) {
         List<OrderItem> orderItemList = Lists.newArrayList();
         if (CollectionUtils.isEmpty(cartList)) {
-           ServerResponse.createByErrorMessage("购物车为空");
+            ServerResponse.createByErrorMessage("购物车为空");
         }
         //校验购物车的数据，包括产品和数量
         for (Cart cartItem : cartList) {
