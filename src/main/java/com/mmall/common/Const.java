@@ -15,7 +15,7 @@ public class Const {
     public static final String TOKEN_PREFIX = "token_";
 
     public interface RedisCacheExtime {
-        int REDIS_SESSION_EXTIME = 60*30;//30分钟
+        int REDIS_SESSION_EXTIME = 60 * 30;//30分钟
 
     }
 
@@ -56,22 +56,21 @@ public class Const {
     }
 
     public enum OrderStatusEnum {
-        CANCELED(0,"已取消"),
-        NO_PAY(10,"未支付"),
-        PAID(20,"已付款"),
-        SHIPPED(40,"已发货"),
-        ORDER_SUCCESS(50,"订单完成"),
-        ORDER_CLOSE(60,"订单关闭")
-        ;
+        CANCELED(0, "已取消"),
+        NO_PAY(10, "未支付"),
+        PAID(20, "已付款"),
+        SHIPPED(40, "已发货"),
+        ORDER_SUCCESS(50, "订单完成"),
+        ORDER_CLOSE(60, "订单关闭");
 
         OrderStatusEnum(Integer code, String value) {
             this.value = value;
             this.code = code;
         }
 
-        public static OrderStatusEnum codeOf(int code){
-            for(OrderStatusEnum orderStatusEnum : values()){
-                if(orderStatusEnum.getCode() == code){
+        public static OrderStatusEnum codeOf(int code) {
+            for (OrderStatusEnum orderStatusEnum : values()) {
+                if (orderStatusEnum.getCode() == code) {
                     return orderStatusEnum;
                 }
             }
@@ -98,7 +97,7 @@ public class Const {
         }
     }
 
-    public interface AlipayCallback{
+    public interface AlipayCallback {
         String TRADE_STATUS_WAIT_BUYER_PAY = "WAIT_BUYER_PAY";
         String TRADE_STATUS_TRADE_SUCCESS = "TRADE_SUCCESS";
 
@@ -106,13 +105,14 @@ public class Const {
         String RESPONSE_FAILED = "failed";
     }
 
-    public enum PayPlatformEnum{
-        ALIPAY(1,"支付宝");
+    public enum PayPlatformEnum {
+        ALIPAY(1, "支付宝");
 
-        PayPlatformEnum(int code,String value){
+        PayPlatformEnum(int code, String value) {
             this.code = code;
             this.value = value;
         }
+
         private String value;
         private int code;
 
@@ -125,7 +125,7 @@ public class Const {
         }
     }
 
-    public enum PaymentTypeEnum{
+    public enum PaymentTypeEnum {
         ONLINE_PAY(1, "在线支付");
 
         private int code;
@@ -160,5 +160,9 @@ public class Const {
             }
             throw new RuntimeException("么有对应的枚举");
         }
+    }
+
+    public interface REDIS_LOCK {
+        String CLOSE_ORDER_TASK_LOCK = "CLOSE_ORDER_TASK_LOCK";//关闭订单的分布式锁
     }
 }
