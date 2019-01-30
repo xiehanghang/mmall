@@ -47,6 +47,6 @@ public class CloseOrderTask {
 //        iOrderService.closeOrder(hour);
         RedisShardedPoolUtil.del(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
         log.info("释放{},ThreadName{}", Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK, Thread.currentThread().getName());
-        log.info("=============================================================");
+        log.info("===================================================");
     }
 }
