@@ -23,7 +23,7 @@ public class CloseOrderTask {
     @Autowired
     private RedissonManager redissonManager;
 
-    //    @Scheduled(cron = "0 */1 * * * ?")//每分钟执行一次
+//    @Scheduled(cron = "0 */1 * * * ?")//每分钟执行一次
     public void closeOrderTask1() {
         log.info("关闭订单定时任务：start");
         int hour = Integer.parseInt(PropertiesUtil.getProperty("close.order.task.time.hour", "2"));
