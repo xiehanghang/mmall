@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <property name="LOG_HOME" value="${CATALINA_HOME}/logs"></property>
+
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoding>UTF-8</encoding>
         <encoder>
@@ -23,7 +24,6 @@
             <pattern>[%d{HH:mm:ss.SSS}][%p][%c{40}][%t] %m%n</pattern>
         </encoder>
     </appender>
-
 
     <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--<File>d:/mmalllog/error.log</File>-->
@@ -50,9 +50,7 @@
         <appender-ref ref="error"/>
     </logger>
 
-
-
-    <!-- geelynote mybatis log 日志 -->
+    <!-- 可以查看 dao 层的 sql 运行日志 -->
 
     <logger name="com.mmall.dao" level="DEBUG"/>
 
@@ -70,7 +68,6 @@
     <!--<logger name="java.sql.PreparedStatement" level="DEBUG">-->
     <!--<appender-ref ref="console"/>-->
     <!--</logger>-->
-
 
     <root level="DEBUG">
         <appender-ref ref="console"/>

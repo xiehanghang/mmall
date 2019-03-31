@@ -22,7 +22,7 @@ public class JsonUtil {
         //对象的所有字段全部列入
         objectMapper.setSerializationInclusion(Inclusion.ALWAYS);
 
-        //取消默认转换timestamps形式
+        //取消默认转换 date 2 timestamps
         objectMapper.configure(SerializationConfig.Feature.WRITE_DATES_AS_TIMESTAMPS, false);
 
         //忽略空Bean转json的错误
@@ -94,4 +94,20 @@ public class JsonUtil {
         }
     }
 
+    public static void main(String[] args) {
+        User user1 = new User();
+        user1.setId(1);
+        user1.setEmail("13090@qq.com");
+
+        String user1Json = JsonUtil.obj2String(user1);
+
+        String user1JsonPretty = JsonUtil.obj2StringPretty(user1);
+
+        log.info("user1Json:" + user1Json);
+        log.info("user1JsonPretty:" + user1JsonPretty);
+
+        User user = JsonUtil.string2Obj(user1Json, User.class);
+
+        System.out.println("end");
+    }
 }

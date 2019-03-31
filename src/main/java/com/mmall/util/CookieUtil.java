@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class CookieUtil {
 
-    private final static String COOKIE_DOMAIN = "happymmall.com";
+    private final static String COOKIE_DOMAIN = "www.happymmall.com";
     private final static String COOKIE_NAME = "mmall_login_token";
 
     public static String readLoginToken(HttpServletRequest request) {
@@ -27,6 +27,19 @@ public class CookieUtil {
         return null;
     }
 
+    //X:domain=".happymmall.com"
+    //a:A.happymmall.com            cookie:domain=A.happymmall.com;path="/"
+    //b:B.happymmall.com            cookie:domain=B.happymmall.com;path="/"
+    //c:A.happymmall.com/test/cc    cookie:domain=A.happymmall.com;path="/test/cc"
+    //d:A.happymmall.com/test/dd    cookie:domain=A.happymmall.com;path="/test/dd"
+    //e:A.happymmall.com/test       cookie:domain=A.happymmall.com;path="/test"
+
+    /**
+     * 从 Tomcat 获取到的 sessionId 作为 token ，以此为 key ，序列化查询结果为 value 存储在 Redis 中。
+     * 并新建一个 Cookie ，new Cookie(COOKIE_NAME, token)。token 为 sessionid。
+     * @param response
+     * @param token
+     */
     public static void writeLoginToken(HttpServletResponse response, String token) {
         Cookie cookie = new Cookie(COOKIE_NAME, token);
         cookie.setDomain(COOKIE_DOMAIN);

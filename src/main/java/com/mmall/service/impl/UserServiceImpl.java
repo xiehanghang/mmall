@@ -108,6 +108,7 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createByErrorMessage("问题答案错误");
     }
 
+    @Override
     public ServerResponse<String> forgetResetPassword(String username, String passwordNew, String forgetToken) {
         if (StringUtils.isBlank(forgetToken)) {
             ServerResponse.createByErrorMessage("参数传递错误，Token需要传递");
