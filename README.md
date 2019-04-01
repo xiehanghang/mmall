@@ -20,7 +20,7 @@
 
 **项目架构图**
 
-
+<img src="./jiagou.png">
 
 
 
