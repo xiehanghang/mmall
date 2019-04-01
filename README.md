@@ -20,7 +20,7 @@
 
 **项目架构图**
 
-<img src="./jiagou.png">
+<img src="https://raw.githubusercontent.com/xiehanghang/mmall/master/README-img/jiagou.png">
 
 
 
